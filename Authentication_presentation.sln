@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2005
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OWIN_pipeline_playground", "OWIN_pipeline_playground", "{A27C1194-5071-42C0-B0A4-7498406F7D48}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OwinSimpleCookieAuth", "OwinSimpleCookieAuth\OwinSimpleCookieAuth.csproj", "{5786AAB7-8A32-44B4-8DB5-05529A4414F7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IIS", "OWIN_pipeline_playground\IIS\IIS.csproj", "{42F0BD20-D3CB-42DC-823C-3FA69CE0704C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pipelines", "OWIN_pipeline_playground\Pipelines\Pipelines.csproj", "{47FE3B58-569F-4FF9-882D-0079312D3418}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SelfHost", "OWIN_pipeline_playground\SelfHost\SelfHost.csproj", "{0262698A-C32F-493F-8005-13603A2B2B37}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5786AAB7-8A32-44B4-8DB5-05529A4414F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5786AAB7-8A32-44B4-8DB5-05529A4414F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5786AAB7-8A32-44B4-8DB5-05529A4414F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5786AAB7-8A32-44B4-8DB5-05529A4414F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42F0BD20-D3CB-42DC-823C-3FA69CE0704C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42F0BD20-D3CB-42DC-823C-3FA69CE0704C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42F0BD20-D3CB-42DC-823C-3FA69CE0704C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42F0BD20-D3CB-42DC-823C-3FA69CE0704C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47FE3B58-569F-4FF9-882D-0079312D3418}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47FE3B58-569F-4FF9-882D-0079312D3418}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47FE3B58-569F-4FF9-882D-0079312D3418}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47FE3B58-569F-4FF9-882D-0079312D3418}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0262698A-C32F-493F-8005-13603A2B2B37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0262698A-C32F-493F-8005-13603A2B2B37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0262698A-C32F-493F-8005-13603A2B2B37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0262698A-C32F-493F-8005-13603A2B2B37}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{42F0BD20-D3CB-42DC-823C-3FA69CE0704C} = {A27C1194-5071-42C0-B0A4-7498406F7D48}
+		{47FE3B58-569F-4FF9-882D-0079312D3418} = {A27C1194-5071-42C0-B0A4-7498406F7D48}
+		{0262698A-C32F-493F-8005-13603A2B2B37} = {A27C1194-5071-42C0-B0A4-7498406F7D48}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {27C8440F-5172-46C9-8742-AB9C8582931C}
+	EndGlobalSection
+EndGlobal

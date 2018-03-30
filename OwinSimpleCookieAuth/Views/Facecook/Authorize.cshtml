@@ -1,0 +1,13 @@
+﻿@using OwinSimpleCookieAuthMVC.Controllers
+
+<body style="background-color: azure">
+
+<h2>FACECOOK app authorization</h2>
+
+<form action="/facecook/authorize?returnUrl=@(this.Request.QueryString["returnUrl"])" method="post">
+    Hi, @ViewBag.user
+    A registered app on Facecook requests to receive confirmation for your identity from Facecook. Do you allow it?
+    <input type = "submit" value = "Authorize" />
+</form>
+
+</body>

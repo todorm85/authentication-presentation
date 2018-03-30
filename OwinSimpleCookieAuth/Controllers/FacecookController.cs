@@ -1,0 +1,65 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using OwinSimpleCookieAuthMVC.Controllers;
+
+namespace OwinCookieAuthMVC.Controllers
+{
+    public class FacecookController : Controller
+    {
+        private static string loggedInUser = null;
+        private static Dictionary<string, string> tokens = new Dictionary<string, string>();
+        public ActionResult Login()
+        {
+            ViewBag.returnUrl = Uri.EscapeUriString(this.Request.QueryString["returnUrl"]);
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Login(string user, string pass)
+        {
+            FacecookController.loggedInUser = user;
+            return this.Redirect("/" + this.Request.QueryString.Get("returnUrl"));
+        }
+
+        [ActionName("authorize")]
+        public ActionResult AuthorizeView()
+        {
+            var originalRedirectUrl = this.Request.QueryString.Get("returnUrl");
+            if (loggedInUser != null)
+            {
+                ViewBag.user = loggedInUser;
+                return View("Authorize");
+            }
+            else
+            {
+                var returnUrl = Uri.EscapeUriString($"facecook/authorize?returnUrl={originalRedirectUrl}");
+                return this.Redirect($"login?returnUrl={returnUrl}");
+            }
+        }
+
+        [HttpPost]
+        public virtual ActionResult Authorize()
+        {
+            var token = Guid.NewGuid().ToString();
+            tokens.Add(token, loggedInUser);
+            var url = $"{Request.QueryString.Get("returnUrl")}&amp;auth_token={token}";
+            return this.Redirect(url);
+        }
+
+        public ActionResult UserInfo()
+        {
+            var token = Request.QueryString.Get("auth_token");
+            var user = tokens[token];
+            return new ContentResult() { Content = user };
+        }
+
+        public ActionResult Logout()
+        {
+            loggedInUser = null;
+            return new ContentResult() { Content = "You were logged out of Facecook" };
+        }
+    }
+}
