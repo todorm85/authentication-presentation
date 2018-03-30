@@ -1,0 +1,13 @@
+1. ASP.NET Integrated pipeline basics
+    - a quick look at the pipeline - what are handlers, modules, integrated or native
+    - main events and routing
+    - some samples
+2. OWIN/KATANA basics
+    - the standard and the OWIN AppBuilder interface
+    - the Katana packages - quick glance
+    - samples - self hosted and in IIS, bare bones middleware pipeline, branching pipeline and integrated in IIS
+3. Katana cookie authentication middleware - basic demo
+4. How modern external authentication based on top of OAuth2 is performed - very basic bare bones demo
+5. Identity Server 3 overview
+6. Mixing it all up together in the Sitefinity request pipeline - examine and debug requests using the source code
+7. The future of authentication in SItefinity
