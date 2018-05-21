@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using OwinSimpleCookieAuthMVC.Controllers;
 
 namespace OwinCookieAuthMVC.Controllers
 {
@@ -11,6 +8,7 @@ namespace OwinCookieAuthMVC.Controllers
     {
         private static string loggedInUser = null;
         private static Dictionary<string, string> tokens = new Dictionary<string, string>();
+
         public ActionResult Login()
         {
             ViewBag.returnUrl = Uri.EscapeUriString(this.Request.QueryString["returnUrl"]);

@@ -7,7 +7,10 @@
     - the Katana packages - quick glance
     - samples - self hosted and in IIS, bare bones middleware pipeline, branching pipeline and integrated in IIS
 3. Katana cookie authentication middleware - basic demo
-4. How modern external authentication based on top of OAuth2 is performed - very basic bare bones demo
-5. Identity Server 3 overview
-6. Mixing it all up together in the Sitefinity request pipeline - examine and debug requests using the source code
-7. The future of authentication in SItefinity
+5. OAuth2.0 and OpenIDConnect protocol quick glance most important parts
+4. How modern external authentication based on top of OAuth2 is performed - very basic bare bones demo with Cookie Auth middlewares
+5. Identity Server 3 quick glance - replace the OP from previous demo
+6. Mixing it all up together in the Sitefinity request pipeline - examine and debug requests using the source code, examine code of existing OWIN pipeline and middlewares, IdSrv default settings
+
+// should
+7. The future of authentication in Sitefinity - maybe 

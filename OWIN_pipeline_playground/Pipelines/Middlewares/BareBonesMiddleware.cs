@@ -21,7 +21,7 @@ namespace Pipelines
 
         public async Task Invoke(IDictionary<string, object> environment)
         {
-            string responseText = "Hello World\n";
+            string responseText = "Bare Bones! Hello World\n";
             byte[] responseBytes = Encoding.UTF8.GetBytes(responseText);
 
             // See http://owin.org/spec/owin-1.0.0.html for standard environment keys.
@@ -32,6 +32,7 @@ namespace Pipelines
             responseHeaders["Content-Type"] = new string[] { "text/plain" };
 
             await responseStream.WriteAsync(responseBytes, 0, responseBytes.Length);
+            await this.next.Invoke(environment);
         }
     }
 }
