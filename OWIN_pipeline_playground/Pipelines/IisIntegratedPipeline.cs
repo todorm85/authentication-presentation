@@ -1,4 +1,6 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Web;
 using Microsoft.Owin;
 using Microsoft.Owin.Extensions;
@@ -6,17 +8,23 @@ using Owin;
 
 namespace Pipelines
 {
+    using AppFunc = Func<IDictionary<string, object>, Task>;
+
     public class IisIntegratedPipeline
     {
-        public void Configuration(IAppBuilder app)
+        public void Configuration(IAppBuilder builder)
         {
-            app.Use((context, next) =>
+            builder.Use((context, next) =>
             {
                 PrintCurrentIntegratedPipelineStage(context, "Middleware 0");
                 return next.Invoke();
             });
-            app.UseStageMarker(PipelineStage.MapHandler);
-            app.Map("/authorize", newApp =>
+
+            builder.UseStageMarker(PipelineStage.MapHandler);
+
+            builder.Use(typeof(RawBranchMiddleware), builder);
+
+            builder.Map("/authorize", newApp =>
             {
                 newApp.Use((context, next) =>
                 {
@@ -26,24 +34,30 @@ namespace Pipelines
                 newApp.UseStageMarker(PipelineStage.Authorize);
 
             });
-            app.Use((context, next) =>
+
+            builder.Use((context, next) =>
             {
                 PrintCurrentIntegratedPipelineStage(context, "2nd MW");
                 return next.Invoke();
             });
+
             //app.UseStageMarker(PipelineStage.Authenticate);
-            app.Use((context, next) =>
+
+            builder.Use((context, next) =>
             {
                 PrintCurrentIntegratedPipelineStage(context, "3d MW");
                 return next.Invoke();
             });
-            app.UseStageMarker(PipelineStage.PostAuthorize);
-            app.Run(context =>
+
+            builder.UseStageMarker(PipelineStage.PostAuthorize);
+
+            builder.Run(context =>
             {
                 PrintCurrentIntegratedPipelineStage(context, "Last");
                 return Task.FromResult<object>(null);
             });
-            app.UseStageMarker(PipelineStage.Authorize);
+
+            builder.UseStageMarker(PipelineStage.Authorize);
         }
 
         private void PrintCurrentIntegratedPipelineStage(IOwinContext context, string msg)

@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Middlewares\BranchingMiddleware.cs" />
     <Compile Include="Middlewares\BareBonesMiddleware.cs" />
     <Compile Include="BareBonesPipeline.cs" />
     <Compile Include="Middlewares\GenericMiddleware.cs" />
