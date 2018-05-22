@@ -85,10 +85,10 @@ namespace OwinSimpleCookieAuthMVC
         protected override async Task<AuthenticationTicket> AuthenticateCoreAsync()
         {
             // get the token from the request
-            var token = Request.Query.First(q => q.Key == "auth_token").Value.First();
+            var code = Request.Query.First(q => q.Key == "auth_code").Value.First();
 
             // get the user from Facecook using the provided authorization code
-            HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, $"{this.Request.Uri.Scheme}://{this.Request.Uri.Host}:{this.Request.Uri.Port}/facecook/userInfo?auth_token={token}");
+            HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, $"{this.Request.Uri.Scheme}://{this.Request.Uri.Host}:{this.Request.Uri.Port}/facecook/token?auth_code={code}");
             //request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token);
             var response = new HttpClient().SendAsync(request, Request.CallCancelled).Result;
             response.EnsureSuccessStatusCode();

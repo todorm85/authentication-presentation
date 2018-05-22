@@ -7,7 +7,7 @@ namespace OwinCookieAuthMVC.Controllers
     public class FacecookController : Controller
     {
         private static string loggedInUser = null;
-        private static Dictionary<string, string> tokens = new Dictionary<string, string>();
+        private static Dictionary<string, string> codes = new Dictionary<string, string>();
 
         public ActionResult Login()
         {
@@ -42,15 +42,15 @@ namespace OwinCookieAuthMVC.Controllers
         public virtual ActionResult Authorize()
         {
             var token = Guid.NewGuid().ToString();
-            tokens.Add(token, loggedInUser);
-            var url = $"{Request.QueryString.Get("returnUrl")}&amp;auth_token={token}";
+            codes.Add(token, loggedInUser);
+            var url = $"{Request.QueryString.Get("returnUrl")}&amp;auth_code={token}";
             return this.Redirect(url);
         }
 
-        public ActionResult UserInfo()
+        public ActionResult Token()
         {
-            var token = Request.QueryString.Get("auth_token");
-            var user = tokens[token];
+            var code = Request.QueryString.Get("auth_code");
+            var user = codes[code];
             return new ContentResult() { Content = user };
         }
 
