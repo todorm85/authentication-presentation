@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.27428.2005
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02 OWIN_pipeline_playground", "02 OWIN_pipeline_playground", "{A27C1194-5071-42C0-B0A4-7498406F7D48}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OAuthBasedAuthentication", "OwinSimpleCookieAuth\OAuthBasedAuthentication.csproj", "{5786AAB7-8A32-44B4-8DB5-05529A4414F7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OAuthBasedAuthentication", "04 Oauth2.0\OAuthBasedAuthentication\OAuthBasedAuthentication.csproj", "{5786AAB7-8A32-44B4-8DB5-05529A4414F7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IIS", "02 OWIN_pipeline_playground\IIS\IIS.csproj", "{42F0BD20-D3CB-42DC-823C-3FA69CE0704C}"
 EndProject
@@ -23,15 +23,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CookieAuthenticationMiddlew
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "05 IdentityServer3", "05 IdentityServer3", "{F355872F-365A-4DBC-A479-22793D97B74C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityServer3Demo", "IdentityServer3Demo\IdentityServer3Demo.csproj", "{9C059BBC-C959-460B-803D-39F616374201}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityServer3Demo", "05 IdentityServer3\IdentityServer3Demo\IdentityServer3Demo.csproj", "{9C059BBC-C959-460B-803D-39F616374201}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "WebApi\WebApi.csproj", "{48987F0D-DA4B-4231-87D2-D0DB89A8276F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "05 IdentityServer3\WebApi\WebApi.csproj", "{48987F0D-DA4B-4231-87D2-D0DB89A8276F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "06 Live Demo IdSrv3", "06 Live Demo IdSrv3", "{86E1C1D8-0ED0-48D2-87C7-10730EA419CE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCClient", "MVCClient\MVCClient.csproj", "{435B5B4B-2F51-4F3F-B711-EA03F8E779AC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OAuth2CodeGrant", "OAuth2CodeGrant\OAuth2CodeGrant.csproj", "{A2AFF7A6-28F9-4625-B9E2-7ED16C3D063D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OAuth2CodeGrant", "04 Oauth2.0\OAuth2CodeGrant\OAuth2CodeGrant.csproj", "{A2AFF7A6-28F9-4625-B9E2-7ED16C3D063D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IISModulesAndHandlers", "01 IISandASP.NET\IISModulesAndHandlers\IISModulesAndHandlers.csproj", "{30A66B5A-59FB-4540-A3B4-E8A00457EF8F}"
 EndProject
