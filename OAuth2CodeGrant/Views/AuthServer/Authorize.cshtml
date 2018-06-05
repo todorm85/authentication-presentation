@@ -1,0 +1,11 @@
+﻿<body style="background-color: azure">
+
+<h2>App authorization</h2>
+
+<form action="/AuthServer/authorize?redirect_uri=@HttpUtility.UrlEncode(this.Request.QueryString["redirect_uri"])" method="post">
+    Hi, @ViewBag.user
+    A registered app (@ViewBag.client) requests to receive confirmation for your profile. Do you allow it?
+    <input type = "submit" value = "Authorize" />
+</form>
+
+</body>

@@ -1,0 +1,11 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Links {
+    <li>@Html.ActionLink("AuthServer", "authorize", "AuthServer", new { area = "" }, null)</li>
+}
+
+<h1>Auth Server</h1>
+
+@RenderBody()

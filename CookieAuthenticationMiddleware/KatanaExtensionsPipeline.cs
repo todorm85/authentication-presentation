@@ -9,7 +9,7 @@ namespace CookieAuthenticationMiddleware
 {
     public class KatanaExtensionsPipeline
     {
-        const string LoginPageMarkup = @"<form action=""/authorize"" method=""GET"">
+        const string LoginPageMarkup = @"<form action=""/authenticate"" method=""GET"">
             <fieldset>
                 <label>Name
                     <input type=""text"" name=""name"">
@@ -69,7 +69,7 @@ namespace CookieAuthenticationMiddleware
                 });
             });
 
-            app.Map("/authorize", branchedApp =>
+            app.Map("/authenticate", branchedApp =>
             {
                 branchedApp.Use((env, next) =>
                 {

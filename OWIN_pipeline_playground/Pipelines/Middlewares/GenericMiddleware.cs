@@ -8,9 +8,9 @@ namespace Pipelines
         {
             app.Use(async (ctx, next) =>
             {
-                await ctx.Response.WriteAsync(title + " preprocess\n");
+                ctx.Response.Write(title + " preprocess\n");
                 await next();
-                await ctx.Response.WriteAsync(title + " postprocess\n");
+                ctx.Response.Write(title + " postprocess\n");
             });
         }
     }

@@ -14,53 +14,59 @@ namespace Pipelines
     {
         public void Configuration(IAppBuilder builder)
         {
-            builder.Use((context, next) =>
+            builder.Use(async (context, next) =>
             {
-                PrintCurrentIntegratedPipelineStage(context, "Middleware 0");
-                return next.Invoke();
-            });
-
-            builder.UseStageMarker(PipelineStage.MapHandler);
-
-            builder.Use(typeof(RawBranchMiddleware), builder);
-
-            builder.Map("/authorize", newApp =>
-            {
-                newApp.Use((context, next) =>
+                PrintCurrentIntegratedPipelineStage(context, "Middleware 0 Pre");
+                await next.Invoke();
+                context.Response.OnSendingHeaders(param =>
                 {
-                    PrintCurrentIntegratedPipelineStage(context, "1st MW");
-                    return Task.FromResult(0);
-                });
-                newApp.UseStageMarker(PipelineStage.Authorize);
-
+                    PrintCurrentIntegratedPipelineStage(context, "Middleware 0 On sending headers");
+                }, null);
+                PrintCurrentIntegratedPipelineStage(context, "Middleware 0 Post");
             });
+
+            //builder.Use(typeof(RawBranchMiddleware), builder);
+
+            //builder.UseStageMarker(PipelineStage.MapHandler);
+
+            //builder.Map("/authorize", newApp =>
+            //{
+            //    newApp.Use((context, next) =>
+            //    {
+            //        PrintCurrentIntegratedPipelineStage(context, "1st MW");
+            //        return Task.FromResult(0);
+            //    });
+            //    newApp.UseStageMarker(PipelineStage.Authorize);
+
+            //});
 
             builder.Use((context, next) =>
             {
+                HttpContext.Current.ApplicationInstance.CompleteRequest();
                 PrintCurrentIntegratedPipelineStage(context, "2nd MW");
                 return next.Invoke();
             });
 
-            //app.UseStageMarker(PipelineStage.Authenticate);
+            ////app.UseStageMarker(PipelineStage.Authenticate);
 
-            builder.Use((context, next) =>
-            {
-                PrintCurrentIntegratedPipelineStage(context, "3d MW");
-                return next.Invoke();
-            });
+            //builder.Use((context, next) =>
+            //{
+            //    PrintCurrentIntegratedPipelineStage(context, "3d MW");
+            //    return next.Invoke();
+            //});
 
-            builder.UseStageMarker(PipelineStage.PostAuthorize);
+            //builder.UseStageMarker(PipelineStage.PostAuthorize);
 
-            builder.Run(context =>
-            {
-                PrintCurrentIntegratedPipelineStage(context, "Last");
-                return Task.FromResult<object>(null);
-            });
+            //builder.Run(context =>
+            //{
+            //    PrintCurrentIntegratedPipelineStage(context, "Last");
+            //    return Task.FromResult<object>(null);
+            //});
 
-            builder.UseStageMarker(PipelineStage.Authorize);
+            //builder.UseStageMarker(PipelineStage.Authorize);
         }
 
-        private void PrintCurrentIntegratedPipelineStage(IOwinContext context, string msg)
+        public static void PrintCurrentIntegratedPipelineStage(IOwinContext context, string msg)
         {
             msg = msg + "\n";
             var currentIntegratedpipelineStage = HttpContext.Current.CurrentNotification;

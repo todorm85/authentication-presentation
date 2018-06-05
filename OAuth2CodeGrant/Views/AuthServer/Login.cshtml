@@ -1,0 +1,10 @@
+﻿<body style="background-color: azure">
+    <h2>Authorization Server</h2>
+
+    <form action="/authserver/login?redirect_uri=@HttpUtility.UrlEncode(this.Request.QueryString["redirect_uri"])" method="post">
+        Username <input type="text" name="user" />
+        Password <input type="password" name="pass" />
+        <input type="submit" value="Login" />
+    </form>
+
+</body>

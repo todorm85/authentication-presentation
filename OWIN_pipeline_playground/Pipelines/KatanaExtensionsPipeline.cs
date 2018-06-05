@@ -1,4 +1,6 @@
-﻿using Owin;
+﻿using System.Threading.Tasks;
+using Microsoft.Owin.Extensions;
+using Owin;
 
 namespace Pipelines
 {
@@ -6,12 +8,15 @@ namespace Pipelines
     {
         public void Configuration(IAppBuilder appBuilder)
         {
-            appBuilder.Map("/favicon.ico", appNotFound => { });
             appBuilder.UseGenericMiddleware("m1");
             appBuilder.UseGenericMiddleware("m2");
-            appBuilder.Map("/custom", m3app => m3app.UseGenericMiddleware("custom"));
             appBuilder.UseGenericMiddleware("m3");
             appBuilder.Use(typeof(BareBonesMiddleware));
+            //appBuilder.Run(env =>
+            //{
+            //    env.Response.Write("Stopping pipeline.\n");
+            //    return Task.FromResult<object>(null);
+            //});
         }
     }
 }

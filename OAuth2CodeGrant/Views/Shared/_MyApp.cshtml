@@ -1,0 +1,11 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Links {
+    <li>@Html.ActionLink("MyApp", "Index", "MyApp", new { area = "" }, null)</li>
+}
+
+<h1>My App</h1>
+
+@RenderBody()

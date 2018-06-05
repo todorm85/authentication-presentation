@@ -29,8 +29,16 @@ namespace Pipelines
             if (path.Value.EndsWith("raw-branch"))
             {
                 var newAppBuilder = this.builder.New();
+
+                newAppBuilder.Use((newContext, next) =>
+                {
+                    IisIntegratedPipeline.PrintCurrentIntegratedPipelineStage(newContext, "BranchMiddleware 0");
+                    return next.Invoke();
+                });
                 newAppBuilder.Run(newAppEnv => newAppEnv.Response.WriteAsync("raw branch\n"));
+
                 var newApp = (AppFunc)newAppBuilder.Build(typeof(AppFunc));
+
                 await newApp.Invoke(env);
             }
             else

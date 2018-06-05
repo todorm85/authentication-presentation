@@ -91,6 +91,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AspMod1.cs" />
+    <Compile Include="HelloSitefinityHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
