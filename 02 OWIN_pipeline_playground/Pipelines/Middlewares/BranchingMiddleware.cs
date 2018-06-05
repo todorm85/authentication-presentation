@@ -5,6 +5,7 @@ using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Owin;
+using Microsoft.Owin.Extensions;
 using Owin;
 
 namespace Pipelines
@@ -36,7 +37,6 @@ namespace Pipelines
                     return next.Invoke();
                 });
                 newAppBuilder.Run(newAppEnv => newAppEnv.Response.WriteAsync("raw branch\n"));
-
                 var newApp = (AppFunc)newAppBuilder.Build(typeof(AppFunc));
 
                 await newApp.Invoke(env);

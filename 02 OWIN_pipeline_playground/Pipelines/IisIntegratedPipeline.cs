@@ -18,27 +18,28 @@ namespace Pipelines
             {
                 PrintCurrentIntegratedPipelineStage(context, "Middleware 0 Pre");
                 await next.Invoke();
-                context.Response.OnSendingHeaders(param =>
-                {
-                    PrintCurrentIntegratedPipelineStage(context, "Middleware 0 On sending headers");
-                }, null);
+                //context.Response.OnSendingHeaders(param =>
+                //{
+                //    PrintCurrentIntegratedPipelineStage(context, "Middleware 0 On sending headers");
+                //}, null);
                 PrintCurrentIntegratedPipelineStage(context, "Middleware 0 Post");
             });
 
-            //builder.Use(typeof(RawBranchMiddleware), builder);
+            builder.Use(typeof(RawBranchMiddleware), builder);
 
-            //builder.UseStageMarker(PipelineStage.MapHandler);
+            builder.UseStageMarker(PipelineStage.Authenticate);
 
-            //builder.Map("/authorize", newApp =>
-            //{
-            //    newApp.Use((context, next) =>
-            //    {
-            //        PrintCurrentIntegratedPipelineStage(context, "1st MW");
-            //        return Task.FromResult(0);
-            //    });
-            //    newApp.UseStageMarker(PipelineStage.Authorize);
 
-            //});
+            builder.Map("/authorize", newApp =>
+            {
+                newApp.Use((context, next) =>
+                {
+                    PrintCurrentIntegratedPipelineStage(context, "1st MW");
+                    return Task.FromResult(0);
+                });
+                newApp.UseStageMarker(PipelineStage.Authorize);
+
+            });
 
             builder.Use((context, next) =>
             {
