@@ -7,11 +7,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02 OWIN_pipeline_playground
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OAuthBasedAuthentication", "OwinSimpleCookieAuth\OAuthBasedAuthentication.csproj", "{5786AAB7-8A32-44B4-8DB5-05529A4414F7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IIS", "OWIN_pipeline_playground\IIS\IIS.csproj", "{42F0BD20-D3CB-42DC-823C-3FA69CE0704C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IIS", "02 OWIN_pipeline_playground\IIS\IIS.csproj", "{42F0BD20-D3CB-42DC-823C-3FA69CE0704C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pipelines", "OWIN_pipeline_playground\Pipelines\Pipelines.csproj", "{47FE3B58-569F-4FF9-882D-0079312D3418}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pipelines", "02 OWIN_pipeline_playground\Pipelines\Pipelines.csproj", "{47FE3B58-569F-4FF9-882D-0079312D3418}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SelfHost", "OWIN_pipeline_playground\SelfHost\SelfHost.csproj", "{0262698A-C32F-493F-8005-13603A2B2B37}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SelfHost", "02 OWIN_pipeline_playground\SelfHost\SelfHost.csproj", "{0262698A-C32F-493F-8005-13603A2B2B37}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01 IISandASP.NET", "01 IISandASP.NET", "{E1A3606B-44C7-4107-AB82-F149ECFF47F4}"
 EndProject
