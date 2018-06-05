@@ -36,9 +36,10 @@ namespace Pipelines
                     IisIntegratedPipeline.PrintCurrentIntegratedPipelineStage(newContext, "BranchMiddleware 0");
                     return next.Invoke();
                 });
-                newAppBuilder.Run(newAppEnv => newAppEnv.Response.WriteAsync("raw branch\n"));
-                var newApp = (AppFunc)newAppBuilder.Build(typeof(AppFunc));
 
+                newAppBuilder.Run(newAppEnv => newAppEnv.Response.WriteAsync("raw branch\n"));
+
+                var newApp = (AppFunc)newAppBuilder.Build(typeof(AppFunc));
                 await newApp.Invoke(env);
             }
             else

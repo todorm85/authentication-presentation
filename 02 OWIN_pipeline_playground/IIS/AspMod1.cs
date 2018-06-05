@@ -16,6 +16,12 @@ namespace IIS
         {
             context.AuthenticateRequest += Context_AuthenticateRequest;
             context.PostAuthenticateRequest += Context_PostAuthenticateRequest;
+            context.EndRequest += Context_EndRequest;
+        }
+
+        private void Context_EndRequest(object sender, EventArgs e)
+        {
+            HttpContext.Current.Response.Write("AspMod1_EndRequest\n");
         }
 
         private void Context_PostAuthenticateRequest(object sender, EventArgs e)
