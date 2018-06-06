@@ -22,23 +22,23 @@ namespace Pipelines
                 //{
                 //    PrintCurrentIntegratedPipelineStage(context, "Base Middleware On sending headers");
                 //}, null);
-                PrintCurrentIntegratedPipelineStage(context, "Base Middleware AfterHandler");
+                //PrintCurrentIntegratedPipelineStage(context, "Base Middleware AfterHandler");
             });
 
-            builder.Use(typeof(RawBranchMiddleware), builder);
+            //builder.Use(typeof(RawBranchMiddleware), builder);
 
-            builder.UseStageMarker(PipelineStage.PostAcquireState);
+            //builder.UseStageMarker(PipelineStage.PostAcquireState);
 
 
             builder.Map("/branched", newApp =>
             {
                 newApp.Use((context, next) =>
                 {
-                    PrintCurrentIntegratedPipelineStage(context, "Authorize Branch MW");
+                    PrintCurrentIntegratedPipelineStage(context, "Branched MW");
                     return Task.FromResult(0);
                 });
 
-                newApp.UseStageMarker(PipelineStage.Authorize);
+                //newApp.UseStageMarker(PipelineStage.Authorize);
             });
 
             builder.Use((context, next) =>
@@ -47,7 +47,7 @@ namespace Pipelines
                 return next.Invoke();
             });
 
-            builder.UseStageMarker(PipelineStage.Authenticate);
+            //builder.UseStageMarker(PipelineStage.Authenticate);
 
             builder.Use((context, next) =>
             {

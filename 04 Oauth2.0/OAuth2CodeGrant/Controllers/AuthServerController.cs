@@ -73,7 +73,7 @@ namespace OAuth2CodeGrant.Controllers
             var clientId = Request.QueryString.Get("client_id");
             var secret = Request.QueryString.Get("client_secret");
             var grant = Request.QueryString.Get("grant_type");
-            if (grant == null)
+            if (grant == null || grant != "code")
             {
                 return Json("Only authorization code grant is supported.", JsonRequestBehavior.AllowGet);
             }

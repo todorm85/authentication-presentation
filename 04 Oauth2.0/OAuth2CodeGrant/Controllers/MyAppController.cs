@@ -35,8 +35,7 @@ namespace OAuth2CodeGrant.Controllers
                 HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, 
                     $@"{this.Request.Url.Scheme}://{this.Request.Url.Host}:{this.Request.Url.Port}/api/profile/age");
 
-                https://tools.ietf.org/html/rfc6749#section-7
-                request.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("bearer", accessToken);
+                request.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("custom", accessToken);
                 var response = new HttpClient().SendAsync(request).Result;
                 response.EnsureSuccessStatusCode();
                 this.ViewBag.Age = response.Content.ReadAsStringAsync().Result;
