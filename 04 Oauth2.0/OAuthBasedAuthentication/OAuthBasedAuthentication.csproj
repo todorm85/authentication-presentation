@@ -147,9 +147,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\MyAppController.cs" />
     <Compile Include="Controllers\FacecookController.cs" />
-    <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="FacecookAuthenticationMiddleware.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -167,15 +166,15 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Views\Web.config" />
-    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\MyApp\Login.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
-    <Content Include="Views\Profile\Index.cshtml" />
     <Content Include="Views\Facecook\Login.cshtml" />
-    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\MyApp\ExternalLoginConfirmation.cshtml" />
     <Content Include="Views\Facecook\Authorize.cshtml" />
+    <Content Include="Views\MyApp\Profile.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

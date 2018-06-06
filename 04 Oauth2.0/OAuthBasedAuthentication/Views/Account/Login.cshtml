@@ -1,9 +1,0 @@
-﻿<h2>MyApp Login</h2>
-
-<form action="/account/login?returnUrl=@(this.Request.QueryString["returnUrl"])" method="post">
-    Username <input type = "text" name = "user" />
-    Password <input type = "password" name = "pass" />
-    <input type = "submit" value = "Login" />
-</form>
-
-<a href="/account/externallogin/?authType=Facecook&amp;returnUrl=@(Uri.EscapeUriString(this.Request.QueryString["returnUrl"]))">Login using Facecook</a>

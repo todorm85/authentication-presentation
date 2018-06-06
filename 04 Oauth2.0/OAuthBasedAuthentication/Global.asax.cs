@@ -12,7 +12,7 @@ namespace OwinSimpleCookieAuthMVC
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "profile", action = "index", id = UrlParameter.Optional }
+                defaults: new { controller = "MyApp", action = "profile", id = UrlParameter.Optional }
             );
         }
 

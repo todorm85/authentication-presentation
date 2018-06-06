@@ -15,7 +15,7 @@ namespace OwinSimpleCookieAuthMVC
             {
                 AuthenticationType = "MyApp",
                 AuthenticationMode = Microsoft.Owin.Security.AuthenticationMode.Active,
-                LoginPath = new PathString("/account/login")
+                LoginPath = new PathString("/MyApp/login")
             });
 
             app.UseCookieAuthentication(new CookieAuthenticationOptions()

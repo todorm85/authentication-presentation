@@ -49,6 +49,7 @@ namespace OwinSimpleCookieAuthMVC
             if (challenge != null)
             {
                 var originalRedirect = Request.Query.Get("returnUrl");
+                // client_id omitted for brievety
                 var redirectUrl = Uri.EscapeUriString($"/signin-facecook?returnUrl={originalRedirect}");
                 Response.Redirect($"/facecook/authorize?returnUrl={redirectUrl}");
                 return Task.FromResult<object>(null);
@@ -71,7 +72,7 @@ namespace OwinSimpleCookieAuthMVC
 
                 // redirect the request to the originally requested resource
                 var redirectUrl = Request.Query.First(x => x.Key == "returnUrl").Value.First();
-                Response.Redirect($"account/ExternalLogin?returnUrl={redirectUrl}");
+                Response.Redirect($"MyApp/ExternalLogin?returnUrl={redirectUrl}");
 
                 // return true to stop next middlewares from being called
                 return true;

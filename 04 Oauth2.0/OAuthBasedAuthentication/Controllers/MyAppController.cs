@@ -8,9 +8,19 @@ using Microsoft.Owin.Host.SystemWeb;
 
 namespace OwinSimpleCookieAuthMVC.Controllers
 {
-    public class AccountController : Controller
+    public class MyAppController : Controller
     {
         public virtual string AuthenticationType => "MyApp";
+
+        [Authorize]
+        [ActionName("profile")]
+        public ActionResult ProfileView()
+        {
+            var ctx = HttpContext.GetOwinContext();
+            ViewBag.username = ctx.Authentication.User.Claims.First(x => x.Type == "name").Value;
+            ViewBag.provider = ctx.Authentication.User.Claims.First(x => x.Type == "provider").Value;
+            return View();
+        }
 
         public ActionResult Login()
         {
